@@ -1,0 +1,125 @@
+#!/bin/sh
+
+help()
+{
+  echo 'usage: set_theme [theme] [flags]'
+  echo
+  echo '  no args           use menu to set theme and background'
+  echo '  --no-bg           dont set default background for theme'
+  echo '  -a, --alpha       set alpha value to float supplied'
+  echo '  -h, --help        u a dum'
+}
+
+firefox_dir="$HOME/.mozilla/firefox/ierkfrf8.default-release"
+dunst_dir="$HOME/.config/dunst"
+theme=''
+
+set_theme_bg()
+{
+  case "$1" in
+    1 | nord)
+      set_bg -r0 -b "/home/$USER/Pictures/wallpapers/Colorthemes/Nord/Nordic6_cropped.jpg"
+      theme='nord'
+      ;;
+    2 | seoul256)
+      set_bg -r0 -b "/home/$USER/Pictures/wallpapers/4k/Mario-World-dwq6hl-scaled.jpg"
+      theme='seoul256'
+      ;;
+    3 | rose)
+      set_bg -r0 -b "/home/$USER/Pictures/wallpapers/4k/bz8sohdwzac61.jpg"
+      theme='rose'
+      ;;
+    4 | embark)
+      set_bg -r0 -b "/home/$USER/Pictures/wallpapers/3k/694956.jpg"
+      theme='embark'
+      ;;
+    5 | tokyo_night)
+      set_bg -r0 -b "/home/$USER/Pictures/wallpapers/3k/tatami-room-wallpaper-cropped.jpg"
+      theme='tokyo_night'
+      ;;
+    6 | moonfly)
+      set_bg -r0 -b "/home/$USER/Pictures/wallpapers/4k/870592.jpeg"
+      theme='moonfly'
+      ;;
+  esac
+}
+
+if [ -z "$1" ]; then
+  echo "1 -> nord"
+  echo "2 -> seoul256"
+  echo "3 -> rose"
+  echo "4 -> embark"
+  echo "5 -> tokyo_night"
+  echo "6 -> moonfly"
+  read -p "which theme? " opt
+  set_theme_bg $opt
+else
+  while [ -n "$1" ]; do
+    case "$1" in
+      -h | --help)
+        help
+        exit
+        ;;
+      -a | --alpha)
+        if [ ! -z "$2" ]; then
+          alpha="$2"
+          shift
+        else
+          echo 'no value supplied for alpha'
+          exit
+        fi
+        ;;
+      --no-bg)
+        no_bg=1
+        ;;
+      *)
+        theme=$1
+        ;;
+    esac
+    shift
+  done
+fi
+
+# set alpha if needed
+if [ -n "$alpha" ]; then
+  sed -i "s/alpha.*;/alpha = $alpha;/g" st/config.h
+fi
+
+# set background if needed
+if [ -z "$no_bg" ]; then
+  set_theme_bg $theme
+fi
+
+killall firefox
+
+# set dunst color
+cp ".config/dunst/dunstrc" "$dunst_dir/"
+cat ".config/dunst/$theme/dunstrc_color" >>"$dunst_dir/dunstrc"
+
+# set browser css
+cp ".config/firefox/$theme/userColors.css" "$firefox_dir/chrome"
+
+# set blank page color
+normal_bg=$(cat ".config/firefox/$theme/userColors.css" | grep 'normal_bg' \
+  | awk '{print $2}' | cut -b -7)
+sed -i '/browser.display.background_color.dark/d' "$firefox_dir/prefs.js"
+echo "user_pref(\"browser.display.background_color.dark\", \"$normal_bg\");" \
+  >>"$firefox_dir/prefs.js"
+
+# set st and dwm themes then compile
+sed -i "s+themes/.*+themes/$theme.h\"+g" tabbed/config.h
+sed -i "s+themes/.*+themes/$theme.h\"+g" st/config.h
+sed -i "s+themes/.*+themes/$theme.h\"+g" dwm/config.h
+sed -i "s/scheme = \".*\"/scheme = \"$theme\"/g" $HOME/.config/nvim/init.lua
+cd tabbed
+sudo make clean install
+cd ../st
+sudo make clean install
+cd ../dwm
+sudo make clean install
+cd ..
+clear
+killall dwm
+# echo
+# echo 'restart dwm'
+# echo

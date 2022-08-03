@@ -1,0 +1,15 @@
+/* tokyo_night colortheme */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --dimmed_fg: color-mix(in srgb, #787c99 50%, transparent);
+    --normal_fg: #787c99;
+    --select_fg: #c0caf5;
+    --normal_bg: #1a1b26;
+    --select_bd: #9aa5ce;
+    --select_bg: color-mix(in srgb, currentColor 6%, transparent);
+    --shadow: 0 0 4px black;
+    --roundness: 16px;
+    --roundness-small: 12px;
+    --roundness-tiny: 8px;
+  }
+}

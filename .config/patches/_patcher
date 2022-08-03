@@ -1,0 +1,28 @@
+#!/bin/bash
+name=$1
+echo "name = $name"
+echo # create and switch to branch
+git branch $name
+git checkout $name
+echo "on branch $name"
+read -p 'continue?'
+echo # add and apply patch to branch
+git add $name
+git apply $name
+echo 'applied patch'
+read -p 'continue?'
+echo # test patch
+sudo make
+rm config.h -f
+git status --short
+echo 'tested patch'
+read -p 'continue?'
+echo # add created componenents to branch
+echo 'adding ...'
+echo $(git status --short | grep -v patches | cut -c 4-)
+git add $(git status --short | grep -v patches | cut -c 4-)
+read -p 'continue?'
+echo # commit changes to branch
+git commit -m $name
+git checkout base
+echo "done"

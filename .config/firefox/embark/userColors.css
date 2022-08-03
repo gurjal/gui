@@ -1,0 +1,15 @@
+/* embark colortheme */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --dimmed_fg: color-mix(in srgb, #a6b3cc 50%, transparent);
+    --normal_fg: #a6b3cc;
+    --select_fg: #f8f8f2;
+    --normal_bg: #1e1c31;
+    --select_bd: #a1efd3;
+    --select_bg: color-mix(in srgb, currentColor 6%, transparent);
+    --shadow: 0 0 4px black;
+    --roundness: 16px;
+    --roundness-small: 12px;
+    --roundness-tiny: 8px;
+  }
+}

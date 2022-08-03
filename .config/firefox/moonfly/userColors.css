@@ -1,0 +1,15 @@
+/* moonfly colortheme */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --dimmed_fg: color-mix(in srgb, #9e9e9e 50%, transparent);
+    --normal_fg: #9e9e9e;
+    --select_fg: #eeeeee;
+    --normal_bg: #080808;
+    --select_bd: #b2ceee;
+    --select_bg: color-mix(in srgb, currentColor 6%, transparent);
+    --shadow: 0 0 4px black;
+    --roundness: 16px;
+    --roundness-small: 12px;
+    --roundness-tiny: 8px;
+  }
+}
