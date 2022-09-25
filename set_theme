@@ -1,5 +1,12 @@
 #!/bin/bash
 
+# exit when any command fails
+set -e
+# keep track of the last executed command
+trap 'last_command=$current_command; current_command=$BASH_COMMAND' DEBUG
+# echo an error message before exiting
+trap 'echo "\"${last_command}\" command filed with exit code $?."' EXIT
+
 help()
 {
   echo 'usage: set_theme [theme] [flags]'
@@ -10,7 +17,7 @@ help()
   echo '  -h, --help        u a dum'
 }
 
-firefox_dir="$HOME/.mozilla/firefox/5kozdw7e.default-default"
+firefox_dir="$HOME/.mozilla/firefox/hupyedpq.default-default"
 dunst_dir="$HOME/.config/dunst"
 theme=''
 
