@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 help()
 {
@@ -10,7 +10,7 @@ help()
   echo '  -h, --help        u a dum'
 }
 
-firefox_dir="$HOME/.mozilla/firefox/oevt8t8a.default-default"
+firefox_dir="$HOME/.mozilla/firefox/5kozdw7e.default-default"
 dunst_dir="$HOME/.config/dunst"
 theme=''
 
