@@ -17,7 +17,7 @@ help()
   echo '  -h, --help        u a dum'
 }
 
-firefox_dir="$HOME/.mozilla/firefox/hupyedpq.default-default"
+firefox_dir="/home/gurjal/.mozilla/firefox/udrnd82p.default-default"
 dunst_dir="$HOME/.config/dunst"
 theme=''
 
@@ -97,8 +97,8 @@ if [ -z "$no_bg" ]; then
   set_theme_bg $theme
 fi
 
-[[ -x /usr/bin/pkill ]] && pkill firefox
-[[ -x /usr/bin/killall ]] && killall firefox
+# [[ -x /usr/bin/pkill ]] && pkill firefox
+# [[ -x /usr/bin/killall ]] && killall firefox
 
 # set dunst color
 cp ".config/dunst/dunstrc" "$dunst_dir/"
@@ -127,8 +127,8 @@ cd ../dwm
 sudo make clean install
 cd ..
 clear
-[[ -x /usr/bin/pkill ]] && pkill dwm
-[[ -x /usr/bin/killall ]] && killall dwm
+# [[ -x /usr/bin/pkill ]] && pkill dwm
+# [[ -x /usr/bin/killall ]] && killall dwm
 # echo
 # echo 'restart dwm'
 # echo
