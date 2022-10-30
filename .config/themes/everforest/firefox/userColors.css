@@ -1,0 +1,15 @@
+/* rose colortheme */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --dimmed_fg: color-mix(in srgb, #868d80 50%, transparent);
+    --normal_fg: #868d80;
+    --normal_bg: #323d43;
+    --select_fg: #d8caac;
+    --select_bd: #d8caac;
+    --select_bg: color-mix(in srgb, currentColor 6%, transparent);
+    --shadow: 0 0 4px black;
+    --roundness: 16px;
+    --roundness-small: 12px;
+    --roundness-tiny: 8px;
+  }
+}
