@@ -44,11 +44,15 @@ set_theme_bg()
         set_bg -r0 -b "/home/$USER/Pictures/wallpapers/3k/tatami-room-wallpaper-cropped.jpg"
         theme='tokyo_night'
         ;;
-    6 | moonfly)
+    6 | tundra)
+        set_bg -r0 -b "/home/$USER/Pictures/wallpapers/4k/0oui0mtf451a1.jpg"
+        theme='tundra'
+        ;;
+    7 | moonfly)
         set_bg -r0 -b "/home/$USER/Pictures/wallpapers/4k/870592.jpeg"
         theme='moonfly'
         ;;
-    7 | everforest)
+    8 | everforest)
         set_bg -r0 -b "/home/$USER/Pictures/wallpapers/4k/island_trees.jpeg"
         theme='everforest'
         ;;
@@ -61,8 +65,9 @@ if [ -z "$1" ]; then
     echo "3 -> rose_pine"
     echo "4 -> embark"
     echo "5 -> tokyo_night"
-    echo "6 -> moonfly"
-    echo "7 -> everforest"
+    echo "6 -> tundra"
+    echo "7 -> moonfly"
+    echo "8 -> everforest"
     read -p "which theme? " opt
     set_theme_bg $opt
 else
