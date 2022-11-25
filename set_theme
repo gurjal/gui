@@ -24,35 +24,35 @@ theme=''
 set_theme_bg()
 {
     case "$1" in
-    1 | nord)
-        set_bg -r0 -b "/home/$USER/Pictures/wallpapers/Colorthemes/Nord/Nordic6_cropped.jpg"
-        theme='nord'
-        ;;
-    2 | seoul256)
-        set_bg -r0 -b "/home/$USER/Pictures/wallpapers/4k/Mario-World-dwq6hl-scaled.jpg"
-        theme='seoul256'
-        ;;
-    3 | rose_pine)
-        set_bg -r0 -b "/home/$USER/Pictures/wallpapers/4k/bz8sohdwzac61.jpg"
-        theme='rose_pine'
-        ;;
-    4 | embark)
-        set_bg -r0 -b "/home/$USER/Pictures/wallpapers/3k/694956.jpg"
-        theme='embark'
-        ;;
-    5 | tokyo_night)
-        set_bg -r0 -b "/home/$USER/Pictures/wallpapers/3k/tatami-room-wallpaper-cropped.jpg"
-        theme='tokyo_night'
-        ;;
-    6 | tundra)
+    1 | tundra)
         set_bg -r0 -b "/home/$USER/Pictures/wallpapers/4k/0oui0mtf451a1.jpg"
         theme='tundra'
         ;;
-    7 | moonfly)
+    2 | nord)
+        set_bg -r0 -b "/home/$USER/Pictures/wallpapers/Colorthemes/Nord/Nordic6_cropped.jpg"
+        theme='nord'
+        ;;
+    3 | seoul256)
+        set_bg -r0 -b "/home/$USER/Pictures/wallpapers/4k/Mario-World-dwq6hl-scaled.jpg"
+        theme='seoul256'
+        ;;
+    4 | rose_pine)
+        set_bg -r0 -b "/home/$USER/Pictures/wallpapers/4k/bz8sohdwzac61.jpg"
+        theme='rose_pine'
+        ;;
+    5 | embark)
+        set_bg -r0 -b "/home/$USER/Pictures/wallpapers/3k/694956.jpg"
+        theme='embark'
+        ;;
+    6 | tokyo_night)
+        set_bg -r0 -b "/home/$USER/Pictures/wallpapers/3k/tatami-room-wallpaper-cropped.jpg"
+        theme='tokyo_night'
+        ;;
+    8 | moonfly)
         set_bg -r0 -b "/home/$USER/Pictures/wallpapers/4k/870592.jpeg"
         theme='moonfly'
         ;;
-    8 | everforest)
+    9 | everforest)
         set_bg -r0 -b "/home/$USER/Pictures/wallpapers/4k/island_trees.jpeg"
         theme='everforest'
         ;;
@@ -60,12 +60,12 @@ set_theme_bg()
 }
 
 if [ -z "$1" ]; then
-    echo "1 -> nord"
+    echo "1 -> tundra"
     echo "2 -> seoul256"
     echo "3 -> rose_pine"
     echo "4 -> embark"
     echo "5 -> tokyo_night"
-    echo "6 -> tundra"
+    echo "6 -> nord"
     echo "7 -> moonfly"
     echo "8 -> everforest"
     read -p "which theme? " opt
@@ -114,7 +114,7 @@ echo "user_pref(\"browser.display.background_color.dark\", \"$normal_bg\");" >>"
 sed -i "s+themes/.*+themes/$theme.h\"+g" tabbed/config.h
 sed -i "s+themes/.*+themes/$theme.h\"+g" st/config.h
 sed -i "s+themes/.*+themes/$theme.h\"+g" dwm/config.h
-# sed -i "s/scheme = \".*\"/scheme = \"$theme\"/g" $HOME/.config/nvim/init.lua
+sed -i "s/colo.*\"/colo.$theme\"/g" $HOME/.config/nvim/init.lua
 cd tabbed
 sudo make clean install
 cd ../st

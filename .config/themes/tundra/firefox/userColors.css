@@ -5,7 +5,7 @@
     --normal_fg: #6B7280;
     --select_fg: #D1D5DB;
     --normal_bg: #111827;
-    --select_bd: #DDD6FE;
+    --select_bd: #6B7280;
     --select_bg: color-mix(in srgb, currentColor 6%, transparent);
     --shadow: 0 0 4px black;
     --roundness: 16px;
