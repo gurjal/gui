@@ -17,7 +17,7 @@ help()
     echo '  -h, --help        u a dum'
 }
 
-firefox_dir="/home/gurjal/.mozilla/firefox/d697j9qw.default"
+firefox_dir="/home/gurjal/.mozilla/firefox/jxwp0oae.default-default"
 dunst_dir="$HOME/.config/dunst"
 theme=''
 
@@ -48,11 +48,11 @@ set_theme_bg()
         set_bg -r0 -b "/home/$USER/Pictures/wallpapers/3k/tatami-room-wallpaper-cropped.jpg"
         theme='tokyo_night'
         ;;
-    8 | moonfly)
+    7 | moonfly)
         set_bg -r0 -b "/home/$USER/Pictures/wallpapers/4k/870592.jpeg"
         theme='moonfly'
         ;;
-    9 | everforest)
+    8 | everforest)
         set_bg -r0 -b "/home/$USER/Pictures/wallpapers/4k/island_trees.jpeg"
         theme='everforest'
         ;;
