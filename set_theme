@@ -7,8 +7,7 @@ trap 'last_command=$current_command; current_command=$BASH_COMMAND' DEBUG
 # echo an error message before exiting
 trap 'echo "\"${last_command}\" command filed with exit code $?."' EXIT
 
-help()
-{
+help() {
     echo 'usage: set_theme [theme] [flags]'
     echo
     echo '  no args           use menu to set theme and background'
@@ -17,45 +16,44 @@ help()
     echo '  -h, --help        u a dum'
 }
 
-firefox_dir="/home/gurjal/.mozilla/firefox/jxwp0oae.default-default"
+firefox_dir="/home/gurjal/.mozilla/firefox/5e81n6yr.default-default"
 dunst_dir="$HOME/.config/dunst"
 theme=''
 
-set_theme_bg()
-{
+set_theme_bg() {
     case "$1" in
-    1 | tundra)
-        set_bg -r0 -b "/home/$USER/Pictures/wallpapers/4k/0oui0mtf451a1.jpg"
-        theme='tundra'
-        ;;
-    2 | nord)
-        set_bg -r0 -b "/home/$USER/Pictures/wallpapers/Colorthemes/Nord/Nordic6_cropped.jpg"
-        theme='nord'
-        ;;
-    3 | seoul256)
-        set_bg -r0 -b "/home/$USER/Pictures/wallpapers/4k/Mario-World-dwq6hl-scaled.jpg"
-        theme='seoul256'
-        ;;
-    4 | rose_pine)
-        set_bg -r0 -b "/home/$USER/Pictures/wallpapers/4k/bz8sohdwzac61.jpg"
-        theme='rose_pine'
-        ;;
-    5 | embark)
-        set_bg -r0 -b "/home/$USER/Pictures/wallpapers/3k/694956.jpg"
-        theme='embark'
-        ;;
-    6 | tokyo_night)
-        set_bg -r0 -b "/home/$USER/Pictures/wallpapers/3k/tatami-room-wallpaper-cropped.jpg"
-        theme='tokyo_night'
-        ;;
-    7 | moonfly)
-        set_bg -r0 -b "/home/$USER/Pictures/wallpapers/4k/870592.jpeg"
-        theme='moonfly'
-        ;;
-    8 | everforest)
-        set_bg -r0 -b "/home/$USER/Pictures/wallpapers/4k/island_trees.jpeg"
-        theme='everforest'
-        ;;
+        1 | tundra)
+            set_bg -r0 -b "/home/$USER/Pictures/wallpapers/4k/0oui0mtf451a1.jpg"
+            theme='tundra'
+            ;;
+        2 | seoul256)
+            set_bg -r0 -b "/home/$USER/Pictures/wallpapers/4k/Mario-World-dwq6hl-scaled.jpg"
+            theme='seoul256'
+            ;;
+        3 | rose_pine)
+            set_bg -r0 -b "/home/$USER/Pictures/wallpapers/4k/bz8sohdwzac61.jpg"
+            theme='rose_pine'
+            ;;
+        4 | embark)
+            set_bg -r0 -b "/home/$USER/Pictures/wallpapers/3k/694956.jpg"
+            theme='embark'
+            ;;
+        5 | tokyo_night)
+            set_bg -r0 -b "/home/$USER/Pictures/wallpapers/3k/tatami-room-wallpaper-cropped.jpg"
+            theme='tokyo_night'
+            ;;
+        6 | nord)
+            set_bg -r0 -b "/home/$USER/Pictures/wallpapers/Colorthemes/Nord/Nordic6_cropped.jpg"
+            theme='nord'
+            ;;
+        7 | moonfly)
+            set_bg -r0 -b "/home/$USER/Pictures/wallpapers/4k/870592.jpeg"
+            theme='moonfly'
+            ;;
+        8 | everforest)
+            set_bg -r0 -b "/home/$USER/Pictures/wallpapers/4k/island_trees.jpeg"
+            theme='everforest'
+            ;;
     esac
 }
 
@@ -73,16 +71,16 @@ if [ -z "$1" ]; then
 else
     while [ -n "$1" ]; do
         case "$1" in
-        -h | --help)
-            help
-            exit
-            ;;
-        --no-bg)
-            no_bg=1
-            ;;
-        *)
-            theme=$1
-            ;;
+            -h | --help)
+                help
+                exit
+                ;;
+            --no-bg)
+                no_bg=1
+                ;;
+            *)
+                theme=$1
+                ;;
         esac
         shift
     done
