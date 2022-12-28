@@ -16,7 +16,7 @@ help() {
     echo '  -h, --help        u a dum'
 }
 
-firefox_dir="/home/gurjal/.mozilla/firefox/5e81n6yr.default-default"
+firefox_dir="/home/gurjal/.mozilla/firefox/6i7o01xs.default-default"
 dunst_dir="$HOME/.config/dunst"
 theme=''
 
@@ -98,7 +98,7 @@ fi
 cp ".config/dunst/dunstrc" "$dunst_dir/"
 cat ".config/themes/$theme/dunst/dunstrc_color" >>"$dunst_dir/dunstrc"
 
-# set browser css
+# set firefox css
 cp ".config/firefox/userChrome.css" "$firefox_dir/chrome"
 cp ".config/themes/$theme/firefox/userColors.css" "$firefox_dir/chrome"
 
@@ -107,6 +107,10 @@ normal_bg=$(cat ".config/themes/$theme/firefox/userColors.css" | grep 'normal_bg
     awk '{print $2}' | cut -b -7)
 sed -i '/browser.display.background_color.dark/d' "$firefox_dir/prefs.js"
 echo "user_pref(\"browser.display.background_color.dark\", \"$normal_bg\");" >>"$firefox_dir/prefs.js"
+
+# qutebrowser
+sed -i '/config.source/d' "$HOME/.config/qutebrowser/config.py"
+echo "config.source('themes/$theme.py')" >> "$HOME/.config/qutebrowser/config.py"
 
 # set st and dwm themes then compile
 sed -i "s+themes/.*+themes/$theme.h\"+g" tabbed/config.h
