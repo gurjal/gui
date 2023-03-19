@@ -1,0 +1,15 @@
+/* gruvbox_material colortheme */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --dimmed_fg: color-mix(in srgb, #928374 50%, transparent);
+    --normal_fg: #928374;
+    --normal_bg: #282828;
+    --select_fg: #d4be98;
+    --select_bd: #d4be98;
+    --select_bg: color-mix(in srgb, currentColor 6%, transparent);
+    --shadow: 0 0 4px black;
+    --roundness: 16px;
+    --roundness-small: 12px;
+    --roundness-tiny: 8px;
+  }
+}
