@@ -1,11 +1,12 @@
 /* frappe colortheme */
 @media (prefers-color-scheme: dark) {
   :root {
-    --dimmed_fg: color-mix(in srgb, #898595 50%, transparent);
+    /* --dimmed_fg: color-mix(in srgb, #898595 50%, transparent); */
+    --dimmed_fg: #575268;
     --normal_fg: #898595;
     --select_fg: #C6D0F5;
     --normal_bg: #303446;
-    --select_bd: #C6D0F5;
+    --select_bd: #F2D5CF;
     --select_bg: color-mix(in srgb, currentColor 6%, transparent);
     --shadow: 0 0 4px black;
     --roundness: 16px;
