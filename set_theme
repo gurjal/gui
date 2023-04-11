@@ -22,48 +22,52 @@ theme=''
 
 set_theme_bg() {
     case "$1" in
-        1  | ayu)
+        1  | frappe)
+            set_bg -r0 -b "/home/$USER/Pictures/wallpapers/4k/blueorange_temple_5120x2160.png"
+            theme='frappe'
+            ;;
+        2  | ayu)
             set_bg -r0 -b "/home/$USER/Pictures/wallpapers/4k/267592.jpeg"
             theme='ayu'
             ;;
-        2  | palenight)
+        3  | palenight)
             set_bg -r0 -b "/home/$USER/Pictures/wallpapers/4k/outset_island_night.jpg"
             theme='palenight'
             ;;
-        3  | everforest)
+        4  | everforest)
             set_bg -r0 -b "/home/$USER/Pictures/wallpapers/4k/island_trees.jpeg"
             theme='everforest'
             ;;
-        4  | rose_pine)
+        5  | rose_pine)
             set_bg -r0 -b "/home/$USER/Pictures/wallpapers/4k/b6hhyxfslq051.jpg"
             theme='rose_pine'
             ;;
-        5  | gruvbox_material)
+        6  | gruvbox_material)
             set_bg -r0 -b "/home/$USER/Pictures/wallpapers/2k/orange_harbor_city_painter.jpg"
             theme='gruvbox_material'
             ;;
-        6  | embark)
+        7  | embark)
             # set_bg -r0 -b "/home/$USER/Pictures/wallpapers/3k/694956.jpg"
             set_bg -r0 -b "/home/$USER/Pictures/wallpapers/4k/purple_peach_mountain_sunset.jpg"
             theme='embark'
             ;;
-        7  | tokyo_night)
+        8  | tokyo_night)
             set_bg -r0 -b "/home/$USER/Pictures/wallpapers/3k/tatami-room-wallpaper-cropped.jpg"
             theme='tokyo_night'
             ;;
-        8  | nord)
+        9  | nord)
             set_bg -r0 -b "/home/$USER/Pictures/wallpapers/Colorthemes/Nord/Nordic6_cropped.jpg"
             theme='nord'
             ;;
-        9  | moonfly)
+        10  | moonfly)
             set_bg -r0 -b "/home/$USER/Pictures/wallpapers/4k/870592.jpeg"
             theme='moonfly'
             ;;
-        10 | seoul256)
+        20 | seoul256)
             set_bg -r0 -b "/home/$USER/Pictures/wallpapers/4k/outset_island_night.jpg"
             theme='seoul256'
             ;;
-        11 | tundra)
+        21 | tundra)
             set_bg -r0 -b "/home/$USER/Pictures/wallpapers/4k/0oui0mtf451a1.jpg"
             theme='tundra'
             ;;
@@ -71,17 +75,18 @@ set_theme_bg() {
 }
 
 if [ -z "$1" ]; then
-    echo "1  -> ayu"
-    echo "2  -> palenight"
-    echo "3  -> everforest"
-    echo "4  -> rose_pine"
-    echo "5  -> gruvbox_material"
-    echo "6  -> embark"
-    echo "7  -> tokyo_night"
-    echo "8  -> nord"
-    echo "9  -> moonfly"
-    echo "10 -> seoul256"
-    echo "11 -> tundra"
+    echo "1  -> frappe"
+    echo "2  -> ayu"
+    echo "3  -> palenight"
+    echo "4  -> everforest"
+    echo "5  -> rose_pine"
+    echo "6  -> gruvbox_material"
+    echo "7  -> embark"
+    echo "8  -> tokyo_night"
+    echo "9  -> nord"
+    echo "10  -> moonfly"
+    echo "20 -> seoul256"
+    echo "21 -> tundra"
     read -p "which theme? " opt
     set_theme_bg $opt
 else
