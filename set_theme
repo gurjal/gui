@@ -84,9 +84,9 @@ if [ -z "$1" ]; then
     echo "7  -> embark"
     echo "8  -> tokyo_night"
     echo "9  -> nord"
-    echo "10  -> moonfly"
-    echo "20 -> seoul256"
-    echo "21 -> tundra"
+    echo "10 -> moonfly"
+    echo "11 -> seoul256"
+    echo "12 -> tundra"
     read -p "which theme? " opt
     set_theme_bg $opt
 else
