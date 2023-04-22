@@ -22,60 +22,60 @@ theme=''
 
 set_theme_bg() {
     case "$1" in
-        1  | frappe)
-            set_bg -r0 -b "/home/$USER/Pictures/wallpapers/4k/blueorange_temple_5120x2160.png"
-            theme='frappe'
+        1  | catppuccin)
+            set-bg -r0 -b "/home/$USER/Pictures/wallpapers/4k/blueorange_temple_5120x2160.png"
+            theme='catppuccin'
             ;;
         2  | ayu)
-            set_bg -r0 -b "/home/$USER/Pictures/wallpapers/4k/267592.jpeg"
+            set-bg -r0 -b "/home/$USER/Pictures/wallpapers/4k/267592.jpeg"
             theme='ayu'
             ;;
         3  | palenight)
-            set_bg -r0 -b "/home/$USER/Pictures/wallpapers/4k/outset_island_night.jpg"
+            set-bg -r0 -b "/home/$USER/Pictures/wallpapers/4k/outset_island_night.jpg"
             theme='palenight'
             ;;
         4  | everforest)
-            set_bg -r0 -b "/home/$USER/Pictures/wallpapers/4k/island_trees.jpeg"
+            set-bg -r0 -b "/home/$USER/Pictures/wallpapers/4k/island_trees.jpeg"
             theme='everforest'
             ;;
         5  | rose_pine)
-            set_bg -r0 -b "/home/$USER/Pictures/wallpapers/4k/b6hhyxfslq051.jpg"
+            set-bg -r0 -b "/home/$USER/Pictures/wallpapers/4k/b6hhyxfslq051.jpg"
             theme='rose_pine'
             ;;
         6  | gruvbox_material)
-            set_bg -r0 -b "/home/$USER/Pictures/wallpapers/2k/orange_harbor_city_painter.jpg"
+            set-bg -r0 -b "/home/$USER/Pictures/wallpapers/2k/orange_harbor_city_painter.jpg"
             theme='gruvbox_material'
             ;;
         7  | embark)
-            # set_bg -r0 -b "/home/$USER/Pictures/wallpapers/3k/694956.jpg"
-            set_bg -r0 -b "/home/$USER/Pictures/wallpapers/4k/purple_peach_mountain_sunset.jpg"
+            # set-bg -r0 -b "/home/$USER/Pictures/wallpapers/3k/694956.jpg"
+            set-bg -r0 -b "/home/$USER/Pictures/wallpapers/4k/purple_peach_mountain_sunset.jpg"
             theme='embark'
             ;;
         8  | tokyo_night)
-            set_bg -r0 -b "/home/$USER/Pictures/wallpapers/3k/tatami-room-wallpaper-cropped.jpg"
+            set-bg -r0 -b "/home/$USER/Pictures/wallpapers/3k/tatami-room-wallpaper-cropped.jpg"
             theme='tokyo_night'
             ;;
         9  | nord)
-            set_bg -r0 -b "/home/$USER/Pictures/wallpapers/Colorthemes/Nord/Nordic6_cropped.jpg"
+            set-bg -r0 -b "/home/$USER/Pictures/wallpapers/Colorthemes/Nord/Nordic6_cropped.jpg"
             theme='nord'
             ;;
         10  | moonfly)
-            set_bg -r0 -b "/home/$USER/Pictures/wallpapers/4k/870592.jpeg"
+            set-bg -r0 -b "/home/$USER/Pictures/wallpapers/4k/870592.jpeg"
             theme='moonfly'
             ;;
         11 | seoul256)
-            set_bg -r0 -b "/home/$USER/Pictures/wallpapers/4k/outset_island_night.jpg"
+            set-bg -r0 -b "/home/$USER/Pictures/wallpapers/4k/outset_island_night.jpg"
             theme='seoul256'
             ;;
         12 | tundra)
-            set_bg -r0 -b "/home/$USER/Pictures/wallpapers/4k/0oui0mtf451a1.jpg"
+            set-bg -r0 -b "/home/$USER/Pictures/wallpapers/4k/0oui0mtf451a1.jpg"
             theme='tundra'
             ;;
     esac
 }
 
 if [ -z "$1" ]; then
-    echo "1  -> frappe"
+    echo "1  -> catppuccin"
     echo "2  -> ayu"
     echo "3  -> palenight"
     echo "4  -> everforest"
