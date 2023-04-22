@@ -1,9 +1,9 @@
-[submodule "dwm"]
-	path = dwm
-	url = gh:gurjal/dwm
 [submodule "dmenu"]
 	path = dmenu
 	url = gh:gurjal/dmenu
+[submodule "dwm"]
+	path = dwm
+	url = gh:gurjal/dwm
 [submodule "slstatus"]
 	path = slstatus
 	url = gh:gurjal/slstatus
