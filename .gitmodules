@@ -1,0 +1,20 @@
+[submodule "dwm"]
+	path = dwm
+	url = gh:gurjal/dwm
+	branch = master
+[submodule "dmenu"]
+	path = dmenu
+	url = gh:gurjal/dmenu
+	branch = master
+[submodule "slstatus"]
+	path = slstatus
+	url = gh:gurjal/slstatus
+	branch = master
+[submodule "st"]
+	path = st
+	url = gh:gurjal/st
+	branch = master
+[submodule "tabbed"]
+	path = tabbed
+	url = gh:gurjal/tabbed
+	branch = master
