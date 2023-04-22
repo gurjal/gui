@@ -16,7 +16,7 @@ help() {
     echo '  -h, --help        u a dum'
 }
 
-firefox_dir="/home/gurjal/.mozilla/firefox/basm5cql.default-default"
+firefox_dir="/home/gurjal/.mozilla/firefox/4jcg61lz.default-release"
 dunst_dir="$HOME/.config/dunst"
 theme=''
 
