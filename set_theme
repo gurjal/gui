@@ -16,7 +16,7 @@ help() {
     echo '  -h, --help        u a dum'
 }
 
-firefox_dir="/home/gurjal/.mozilla/firefox/4jcg61lz.default-release"
+firefox_dir="/home/gurjal/.mozilla/firefox/basm5cql.default-default/"
 dunst_dir="$HOME/.config/dunst"
 theme=''
 
@@ -39,11 +39,11 @@ set_theme_bg() {
             theme='everforest'
             ;;
         5  | rose_pine)
-            set-bg -r0 -b "/home/$USER/Pictures/wallpapers/4k/b6hhyxfslq051.jpg"
+            set-bg -r0 -b "/home/$USER/Pictures/wallpapers/4k/purple_gazing_6254x3283.jpg"
             theme='rose_pine'
             ;;
         6  | gruvbox_material)
-            set-bg -r0 -b "/home/$USER/Pictures/wallpapers/2k/orange_harbor_city_painter.jpg"
+            set-bg -r0 -b "/home/$USER/Pictures/wallpapers/windows/letter-by-bangjoy1992-4096-x-2081-v0-6zsqbsxu5nka1.jpg"
             theme='gruvbox_material'
             ;;
         7  | embark)
@@ -52,7 +52,7 @@ set_theme_bg() {
             theme='embark'
             ;;
         8  | tokyo_night)
-            set-bg -r0 -b "/home/$USER/Pictures/wallpapers/3k/tatami-room-wallpaper-cropped.jpg"
+            set-bg -r0 -b "/home/$USER/Pictures/wallpapers/4k/1128360.jpg"
             theme='tokyo_night'
             ;;
         9  | nord)
