@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# TODO change rose_pine theme name to rose-pine to match neovim theme
+
 # exit when any command fails
 set -e
 # keep track of the last executed command
@@ -39,7 +41,7 @@ set_theme_bg() {
             theme='everforest'
             ;;
         5  | rose_pine)
-            set-bg -r0 -b "/home/$USER/Pictures/wallpapers/4k/purple_gazing_6254x3283.jpg"
+            set-bg -r0 -b "/home/$USER/Pictures/wallpapers/windows/view-of-the-parade-of-planets-2560x1440-v0-uwax6cf8ojma1.png"
             theme='rose_pine'
             ;;
         6  | gruvbox)
