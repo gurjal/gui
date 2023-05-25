@@ -1,7 +1,5 @@
 #!/bin/bash
 
-# TODO change rose_pine theme name to rose-pine to match neovim theme
-
 # exit when any command fails
 set -e
 # keep track of the last executed command
@@ -18,7 +16,7 @@ help() {
     echo '  -h, --help        u a dum'
 }
 
-firefox_dir="/home/gurjal/.mozilla/firefox/basm5cql.default-default/"
+firefox_dir="/home/gurjal/.mozilla/firefox/d3xb0nce.default-esr"
 dunst_dir="$HOME/.config/dunst"
 theme=''
 
@@ -40,9 +38,9 @@ set_theme_bg() {
             set-bg -r0 -b "/home/$USER/Pictures/wallpapers/4k/island_trees.jpeg"
             theme='everforest'
             ;;
-        5  | rose_pine)
+        5  | rose-pine)
             set-bg -r0 -b "/home/$USER/Pictures/wallpapers/windows/view-of-the-parade-of-planets-2560x1440-v0-uwax6cf8ojma1.png"
-            theme='rose_pine'
+            theme='rose-pine'
             ;;
         6  | gruvbox)
             set-bg -r0 -b "/home/$USER/Pictures/wallpapers/windows/letter-by-bangjoy1992-4096-x-2081-v0-6zsqbsxu5nka1.jpg"
@@ -81,7 +79,7 @@ if [ -z "$1" ]; then
     echo "2  -> ayu"
     echo "3  -> palenight"
     echo "4  -> everforest"
-    echo "5  -> rose_pine"
+    echo "5  -> rose-pine"
     echo "6  -> gruvbox"
     echo "7  -> embark"
     echo "8  -> tokyonight"
