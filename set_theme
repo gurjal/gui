@@ -16,7 +16,7 @@ help() {
     echo '  -h, --help        u a dum'
 }
 
-firefox_dir="/home/gurjal/.mozilla/firefox/d3xb0nce.default-esr"
+firefox_dir="/home/gurjal/.mozilla/firefox/jf1dwznw.default-esr"
 dunst_dir="$HOME/.config/dunst"
 theme=''
 
@@ -39,7 +39,7 @@ set_theme_bg() {
             theme='everforest'
             ;;
         5  | rose-pine)
-            set-bg -r0 -b "/home/$USER/Pictures/wallpapers/windows/view-of-the-parade-of-planets-2560x1440-v0-uwax6cf8ojma1.png"
+            set-bg -r0 -b "/home/$USER/Pictures/wallpapers/4k/purple_peach_mountain_sunset.jpg"
             theme='rose-pine'
             ;;
         6  | gruvbox)
@@ -48,7 +48,7 @@ set_theme_bg() {
             ;;
         7  | embark)
             # set-bg -r0 -b "/home/$USER/Pictures/wallpapers/3k/694956.jpg"
-            set-bg -r0 -b "/home/$USER/Pictures/wallpapers/4k/purple_peach_mountain_sunset.jpg"
+            set-bg -r0 -b "/home/$USER/Pictures/wallpapers/windows/view-of-the-parade-of-planets-2560x1440-v0-uwax6cf8ojma1.png"
             theme='embark'
             ;;
         8  | tokyonight)
