@@ -2,12 +2,8 @@
 
 # exit when any command fails
 set -e
-# keep track of the last executed command
-trap 'last_command=$current_command; current_command=$BASH_COMMAND' DEBUG
-# echo an error message before exiting
-trap 'echo "\"${last_command}\" command filed with exit code $?."' EXIT
 
-help() {
+usage() {
     echo 'usage: set_theme [theme] [flags]'
     echo
     echo '  no args           use menu to set theme and background'
@@ -16,7 +12,7 @@ help() {
     echo '  -h, --help        u a dum'
 }
 
-firefox_dir="/home/gurjal/.mozilla/firefox/jf1dwznw.default-esr"
+firefox_dir="/home/gurjal/.mozilla/firefox/2x0rjosj.default-esr"
 dunst_dir="$HOME/.config/dunst"
 theme=''
 
@@ -93,7 +89,7 @@ else
     while [ -n "$1" ]; do
         case "$1" in
             -h | --help)
-                help
+                usage
                 exit
                 ;;
             --no-bg)
@@ -106,6 +102,11 @@ else
         shift
     done
 fi
+
+# keep track of the last executed command
+trap 'last_command=$current_command; current_command=$BASH_COMMAND' DEBUG
+# echo an error message before exiting
+trap 'echo "\"${last_command}\" command filed with exit code $?."' EXIT
 
 # set background if needed
 if [ -z "$no_bg" ]; then
