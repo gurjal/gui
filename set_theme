@@ -12,7 +12,7 @@ usage() {
     echo '  -h, --help        u a dum'
 }
 
-firefox_dir="/home/gurjal/.mozilla/firefox/2x0rjosj.default-esr"
+firefox_dir="/home/gurjal/.mozilla/firefox/basm5cql.default-default"
 dunst_dir="$HOME/.config/dunst"
 theme=''
 
@@ -34,9 +34,9 @@ set_theme_bg() {
             set-bg -r0 -b "/home/$USER/Pictures/wallpapers/4k/island_trees.jpeg"
             theme='everforest'
             ;;
-        5  | rose-pine)
+        5  | rose_pine)
             set-bg -r0 -b "/home/$USER/Pictures/wallpapers/4k/purple_peach_mountain_sunset.jpg"
-            theme='rose-pine'
+            theme='rose_pine'
             ;;
         6  | gruvbox)
             set-bg -r0 -b "/home/$USER/Pictures/wallpapers/windows/letter-by-bangjoy1992-4096-x-2081-v0-6zsqbsxu5nka1.jpg"
@@ -56,7 +56,7 @@ set_theme_bg() {
             theme='nord'
             ;;
         10  | moonfly)
-            set-bg -r0 -b "/home/$USER/Pictures/wallpapers/4k/870592.jpeg"
+            set-bg -r0 -b "/home/$USER/Pictures/wallpapers/windows/road-in-the-sky-1920x1080-v0-wbvhmwy09hma1.jpg"
             theme='moonfly'
             ;;
         11 | seoul256)
