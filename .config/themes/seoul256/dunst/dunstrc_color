@@ -2,7 +2,7 @@
 # seoul256 dunst colors
 [urgency_low]
     foreground = "#949494"
-    background = "#3a3a3a"
+    background = "#4B4B4B"
     frame_color = "#949494"
     timeout = 10
     # Icon for notifications with low urgency, uncomment to enable
@@ -10,7 +10,7 @@
 
 [urgency_normal]
     foreground = "#949494"
-    background = "#3a3a3a"
+    background = "#4B4B4B"
     frame_color = "#949494"
     timeout = 10
     # Icon for notifications with normal urgency, uncomment to enable
