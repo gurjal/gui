@@ -1,70 +1,81 @@
 #!/bin/bash
 
+# packages
+_FIREFOX=true
+_QUTEBROWSER=true
+_DUNST=true
+_NEOVIM=true
+_KAKOUNE=false
+
 # exit when any command fails
 set -e
+
+# config locations
+firefox_dir="/home/gurjal/.mozilla/firefox/33zou0x2.default-release"
+qutebrowser_dir="$HOME/.config/qutebrowser/"
+dunst_dir="$HOME/.config/dunst/"
+theme=''
 
 usage() {
     echo 'usage: set_theme [theme] [flags]'
     echo
     echo '  no args           use menu to set theme and background'
-    echo '  --no-bg           dont set default background for theme'
-    echo '  -a, --alpha       set alpha value to float supplied'
     echo '  -h, --help        u a dum'
 }
 
-firefox_dir="/home/gurjal/.mozilla/firefox/basm5cql.default-default"
-dunst_dir="$HOME/.config/dunst"
-theme=''
-
 set_theme_bg() {
+    _set_bg_command="set-bg -r0 -f"
     case "$1" in
         1  | catppuccin)
-            set-bg -r0 -b "/home/$USER/Pictures/wallpapers/4k/blueorange_temple_5120x2160.png"
+            $_set_bg_command "/home/$USER/Pictures/wallpapers/4k/blueorange_temple_5120x2160.png"
             theme='catppuccin'
             ;;
         2  | ayu)
-            set-bg -r0 -b "/home/$USER/Pictures/wallpapers/4k/267592.jpeg"
+            $_set_bg_command "/home/$USER/Pictures/wallpapers/4k/267592.jpeg"
             theme='ayu'
             ;;
         3  | palenight)
-            set-bg -r0 -b "/home/$USER/Pictures/wallpapers/4k/outset_island_night.jpg"
+            $_set_bg_command "/home/$USER/Pictures/wallpapers/4k/outset_island_night.jpg"
+            # set-bg -r0 -f "/home/$USER/Pictures/wallpapers/4k/833406.jpg"
             theme='palenight'
             ;;
         4  | everforest)
-            set-bg -r0 -b "/home/$USER/Pictures/wallpapers/4k/island_trees.jpeg"
+            # set-bg -r0 -b "/home/$USER/Pictures/wallpapers/4k/island_trees.jpeg"
+            $_set_bg_command "/home/$USER/Pictures/wallpapers/4k/IMG_20210318_132240.jpg"
             theme='everforest'
             ;;
-        5  | rose_pine)
-            set-bg -r0 -b "/home/$USER/Pictures/wallpapers/4k/purple_peach_mountain_sunset.jpg"
-            theme='rose_pine'
+        5  | rose-pine)
+            $_set_bg_command "/home/$USER/Pictures/wallpapers/4k/purple_peach_mountain_sunset.jpg"
+            theme='rose-pine'
             ;;
         6  | gruvbox)
-            set-bg -r0 -b "/home/$USER/Pictures/wallpapers/windows/letter-by-bangjoy1992-4096-x-2081-v0-6zsqbsxu5nka1.jpg"
+            $_set_bg_command "/home/$USER/Pictures/wallpapers/windows/letter-by-bangjoy1992-4096-x-2081-v0-6zsqbsxu5nka1.jpg"
             theme='gruvbox'
             ;;
         7  | embark)
             # set-bg -r0 -b "/home/$USER/Pictures/wallpapers/3k/694956.jpg"
-            set-bg -r0 -b "/home/$USER/Pictures/wallpapers/windows/view-of-the-parade-of-planets-2560x1440-v0-uwax6cf8ojma1.png"
+            # set-bg -r0 -b "/home/$USER/Pictures/wallpapers/windows/view-of-the-parade-of-planets-2560x1440-v0-uwax6cf8ojma1.png"
+            $_set_bg_command "/home/$USER/Pictures/wallpapers/4k/1044012.jpg"
             theme='embark'
             ;;
         8  | tokyonight)
-            set-bg -r0 -b "/home/$USER/Pictures/wallpapers/4k/1128360.jpg"
+            $_set_bg_command "/home/$USER/Pictures/wallpapers/4k/1128360.jpg"
             theme='tokyonight'
             ;;
         9  | nord)
-            set-bg -r0 -b "/home/$USER/Pictures/wallpapers/Colorthemes/Nord/Nordic6_cropped.jpg"
+            $_set_bg_command "/home/$USER/Pictures/wallpapers/Colorthemes/Nord/Nordic6_cropped.jpg"
             theme='nord'
             ;;
         10  | moonfly)
-            set-bg -r0 -b "/home/$USER/Pictures/wallpapers/windows/road-in-the-sky-1920x1080-v0-wbvhmwy09hma1.jpg"
+            $_set_bg_command "/home/$USER/Pictures/wallpapers/4k/870592.jpeg"
             theme='moonfly'
             ;;
         11 | seoul256)
-            set-bg -r0 -b "/home/$USER/Pictures/wallpapers/4k/outset_island_night.jpg"
+            $_set_bg_command "/home/$USER/Pictures/wallpapers/windows/letter-by-bangjoy1992-4096-x-2081-v0-6zsqbsxu5nka1.jpg"
             theme='seoul256'
             ;;
         12 | tundra)
-            set-bg -r0 -b "/home/$USER/Pictures/wallpapers/4k/0oui0mtf451a1.jpg"
+            $_set_bg_command "/home/$USER/Pictures/wallpapers/4k/0oui0mtf451a1.jpg"
             theme='tundra'
             ;;
     esac
@@ -92,9 +103,6 @@ else
                 usage
                 exit
                 ;;
-            --no-bg)
-                no_bg=1
-                ;;
             *)
                 theme=$1
                 ;;
@@ -108,37 +116,43 @@ trap 'last_command=$current_command; current_command=$BASH_COMMAND' DEBUG
 # echo an error message before exiting
 trap 'echo "\"${last_command}\" command filed with exit code $?."' EXIT
 
-# set background if needed
-if [ -z "$no_bg" ]; then
-    set_theme_bg $theme
+if $_FIREFOX; then
+    # [[ -x /usr/bin/pkill ]] && pkill firefox
+    # [[ -x /usr/bin/killall ]] && killall firefox
+
+    # set firefox css
+    cp ".config/firefox/userChrome.css" "$firefox_dir/chrome"
+    cp ".config/themes/$theme/firefox/userColors.css" "$firefox_dir/chrome"
+
+    # set blank page color
+    normal_bg=$(cat ".config/themes/$theme/firefox/userColors.css" | grep 'normal_bg' |
+        awk '{print $2}' | cut -b -7)
+    sed -i '/browser.display.background_color.dark/d' "$firefox_dir/prefs.js"
+    echo "user_pref(\"browser.display.background_color.dark\", \"$normal_bg\");" >>"$firefox_dir/prefs.js"
 fi
 
-# [[ -x /usr/bin/pkill ]] && pkill firefox
-# [[ -x /usr/bin/killall ]] && killall firefox
+if $_QUTEBROWSER; then
+    # qutebrowser theme
+    # sed -i '/config.source/d' "$HOME/.config/qutebrowser/config.py"
+    # echo "config.source('themes/$theme.py')" >> "$HOME/.config/qutebrowser/config.py"
+    cp ".config/themes/$theme/qutebrowser/qtbtheme.py" "$qutebrowser_dir"
+fi
 
-# set dunst color
-cp ".config/dunst/dunstrc" "$dunst_dir/"
-cat ".config/themes/$theme/dunst/dunstrc_color" >>"$dunst_dir/dunstrc"
+if $_DUNST; then
+    # set dunst color
+    cp ".config/dunst/dunstrc" "$dunst_dir/"
+    cat ".config/themes/$theme/dunst/dunstrc_color" >>"$dunst_dir/dunstrc"
+fi
 
-# set firefox css
-cp ".config/firefox/userChrome.css" "$firefox_dir/chrome"
-cp ".config/themes/$theme/firefox/userColors.css" "$firefox_dir/chrome"
+if $_NEOVIM; then
+    # neovim theme
+    sed -i "s+vim.cmd.colorscheme(\".*+vim.cmd.colorscheme(\"$theme\")+g"  $HOME/.config/nvim/init.lua
+fi
 
-# set blank page color
-normal_bg=$(cat ".config/themes/$theme/firefox/userColors.css" | grep 'normal_bg' |
-    awk '{print $2}' | cut -b -7)
-sed -i '/browser.display.background_color.dark/d' "$firefox_dir/prefs.js"
-echo "user_pref(\"browser.display.background_color.dark\", \"$normal_bg\");" >>"$firefox_dir/prefs.js"
-
-# qutebrowser
-sed -i '/config.source/d' "$HOME/.config/qutebrowser/config.py"
-echo "config.source('themes/$theme.py')" >> "$HOME/.config/qutebrowser/config.py"
-
-# neovim
-sed -i "s+vim.cmd.colorscheme(\".*+vim.cmd.colorscheme(\"$theme\")+g"  $HOME/.config/nvim/init.lua
-
-# kakoune
-# sed -i "/colorscheme/c\colorscheme $theme" "$HOME/.config/kak/kakrc"
+if $_KAKOUNE; then
+    # kakoune theme
+    sed -i "/colorscheme/c\colorscheme $theme" "$HOME/.config/kak/kakrc"
+fi
 
 # set st and dwm themes then compile
 sed -i "s+themes/.*+themes/$theme.h\"+g" tabbed/config.h
