@@ -8,8 +8,8 @@
     --select_bd: #6B7280;
     --select_bg: color-mix(in srgb, currentColor 6%, transparent);
     --shadow: 0 0 4px black;
-    --roundness: 16px;
-    --roundness-small: 12px;
+    --roundness: 12px;
+    --roundness-small: 10px;
     --roundness-tiny: 8px;
   }
 }
