@@ -2,7 +2,8 @@
 # moonfly dunst colors
 [urgency_low]
     foreground = "#3e4b59"
-    background = "#0f1419"
+    background = "#0d1017"
+    # background = "#0f1419"
     frame_color = "#3e4b59"
     timeout = 10
     # Icon for notifications with low urgency, uncomment to enable
@@ -10,7 +11,8 @@
 
 [urgency_normal]
     foreground = "#3e4b59"
-    background = "#0f1419"
+    background = "#0d1017"
+    # background = "#0f1419"
     frame_color = "#3e4b59"
     timeout = 10
     # Icon for notifications with normal urgency, uncomment to enable

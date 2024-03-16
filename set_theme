@@ -59,7 +59,7 @@ set_theme_bg() {
             theme='embark'
             ;;
         8  | tokyonight)
-            $_set_bg_command "/home/$USER/Pictures/wallpapers/4k/1128360.jpg"
+            $_set_bg_command "/home/$USER/Pictures/wallpapers/3k/tatami-room-wallpaper-cropped.jpg"
             theme='tokyonight'
             ;;
         9  | nord)
@@ -95,7 +95,7 @@ if [ -z "$1" ]; then
     echo "11 -> seoul256"
     echo "12 -> tundra"
     read -p "which theme? " opt
-    set_theme_bg $opt
+    theme=$opt
 else
     while [ -n "$1" ]; do
         case "$1" in
@@ -110,6 +110,8 @@ else
         shift
     done
 fi
+# set new default background
+set_theme_bg $theme
 
 # keep track of the last executed command
 trap 'last_command=$current_command; current_command=$BASH_COMMAND' DEBUG

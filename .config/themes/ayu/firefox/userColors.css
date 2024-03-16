@@ -4,7 +4,7 @@
     --dimmed_fg: color-mix(in srgb, #3e4b59 50%, transparent);
     --normal_fg: #3e4b59;
     --select_fg: #e6e1cf;
-    --normal_bg: #0f1419;
+    --normal_bg: #0d1017;
     --select_bd: #3e4b59;
     --select_bg: color-mix(in srgb, currentColor 6%, transparent);
     --shadow: 0 0 4px black;

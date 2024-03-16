@@ -3,7 +3,8 @@
 # desc: qutebrowser theme
 #
 
-bg_default = "#0f1419"
+bg_default = "#0d1017"
+# bg_default = "#0f1419"
 fg_default = "#3e4b59"
 fg_selection = "#e6e1cf"
 
