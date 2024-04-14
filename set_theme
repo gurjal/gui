@@ -67,7 +67,8 @@ set_theme_bg() {
             theme='nord'
             ;;
         10  | moonfly)
-            $_set_bg_command "/home/$USER/Pictures/wallpapers/4k/870592.jpeg"
+            $_set_bg_command "/home/$USER/Pictures/wallpapers/4k/r5nyulr9j8z31.jpg"
+            # $_set_bg_command "/home/$USER/Pictures/wallpapers/4k/870592.jpeg"
             theme='moonfly'
             ;;
         11 | seoul256)
